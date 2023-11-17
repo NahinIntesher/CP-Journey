@@ -19,10 +19,13 @@ class Node{
 class Solution{
     public:
     pair<bool, int> sumNode(Node* root){
+        // Base Case
         if(root == NULL){
             pair<bool, int> p = make_pair(true, 0);
             return p;
         }
+
+        // Leaf Node (without Leaf Nodes)
         if(root -> left == NULL && root -> right == NULL){
             pair<bool, int> p = make_pair(true, root -> data);
             return p;
