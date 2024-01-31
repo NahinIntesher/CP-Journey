@@ -1,4 +1,5 @@
 #include <bits/stdc++.h> 
+using namespace std;
 
 void sortedInsert(stack<int> &stack, int num){
 	if(stack.empty() || (!stack.empty() && stack.top() < num)){
