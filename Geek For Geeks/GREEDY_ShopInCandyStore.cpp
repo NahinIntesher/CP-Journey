@@ -3,20 +3,22 @@ using namespace std;
 class Solution{
 public:
     vector<int> candyStore(int candies[], int N, int K){
-        vector<int> ans;
-        vector<int> cnd;
-        for (int i = 0; i < N; i++)
-            cnd.push_back(candies[i]);
-        sort(cnd.begin(), cnd.end());
-
-        int minMoney = 0, maxMoney = 0;
-        for (int i = 0, j = cnd.size()-1; i <= j; i++){
-            minMoney += cnd[i];
-            j -= K;
+        vector<int> ans;       
+        sort(candies, candies+N);
+        int minMoney = 0;
+        int buy = 0, free = N - 1;
+        while(buy <= free){
+            minMoney += candies[buy];
+            buy++;
+            free -= K;
         }
-        for (int i = 0, j = cnd.size()-1; j >= i; j--){
-            maxMoney += cnd[j];
-            i += K;
+        int maxMoney = 0;
+        buy = N - 1;
+        free = 0;
+        while(free <= buy){
+            maxMoney += candies[buy];
+            buy--;
+            free += K;
         }    
         ans.push_back(minMoney);
         ans.push_back(maxMoney);
