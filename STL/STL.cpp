@@ -33,47 +33,47 @@ int main(){
 }
 
 void solve(){
-    vector<int> A = {10, 20, 50, 70, 130, 150, 150, 150, 170, 270, 350, 490};
+    vector<int> A = {10, 20, 50, 70, 130, 150, 170, 270, 350, 490};
     vector<int> C = {150, 170, 270, 150, 350};
 
-    printVec(A);
+    // printVec(A);
 
-    A.insert(A.end(), C.begin(), C.end());
-    A.insert(A.begin(), 3, 2300);
+    // A.insert(A.end(), C.begin(), C.end());
+    // A.insert(A.begin(), 3, 2300);
 
-    printVec(A);
+    // printVec(A);
     
-    A.erase(A.begin(), A.begin()+3);
-    A.erase(A.begin());
+    // A.erase(A.begin(), A.begin()+3);
+    // A.erase(A.begin());
 
-    printVec(A);
+    // printVec(A);
 
-    bool res = binary_search(A.begin(), A.end(), 130);
-    cout << "130 is here? : " << res << nl;
-    cout << A.empty();
-
+    // bool res = binary_search(A.begin(), A.end(), 130);
+    // cout << "130 is here? : " << res << nl;
+    // cout << A.empty();
+    sort(all(A));
     cout << "Lower Bound of 150: " << lower_bound(A.begin(), A.end(), 150) - A.begin() << nl;
-    cout << "Lower Bound of 180: " << lower_bound(A.begin(), A.end(), 180) - A.begin() << nl;
-    cout << "Lower Bound of 350: " << lower_bound(A.begin(), A.end(), 350) - A.begin() << nl;
+    // cout << "Lower Bound of 180: " << lower_bound(A.begin(), A.end(), 180) - A.begin() << nl;
+    // cout << "Lower Bound of 350: " << lower_bound(A.begin(), A.end(), 350) - A.begin() << nl;
 
-    cout << "Upper Bound of 150: " << upper_bound(A.begin(), A.end(), 150) - A.begin() << nl;
-    cout << "Upper Bound of 180: " << upper_bound(A.begin(), A.end(), 180) - A.begin() << nl;
-    cout << "Upper Bound of 350: " << upper_bound(A.begin(), A.end(), 350) - A.begin() << nl;
+    // cout << "Upper Bound of 150: " << upper_bound(A.begin(), A.end(), 150) - A.begin() << nl;
+    // cout << "Upper Bound of 180: " << upper_bound(A.begin(), A.end(), 180) - A.begin() << nl;
+    // cout << "Upper Bound of 350: " << upper_bound(A.begin(), A.end(), 350) - A.begin() << nl;
 
-    int x = 4800;
+    // int x = 4800;
 
-    int index = lower_bound(A.begin(), A.end(), x) - A.begin();
-    if(index != A.size() && A[index] == x){
-        cout << "-> Present\n";
-    }
-    else{
-        cout << "-> Not Present\n";
-    }
+    // int index = lower_bound(A.begin(), A.end(), x) - A.begin();
+    // if(index != A.size() && A[index] == x){
+    //     cout << "-> Present\n";
+    // }
+    // else{
+    //     cout << "-> Not Present\n";
+    // }
 
-    int maxi = *max_element(A.begin(), A.end());
-    int maxi = *max_element(all(A));
-    int maxi = MAX(A);
-    cout << "Max Element of the array: " << maxi;
+    // int maxi = *max_element(A.begin(), A.end());
+    // maxi = *max_element(all(A));
+    // maxi = MAX(A);
+    // cout << "Max Element of the array: " << maxi;
 
 
 
