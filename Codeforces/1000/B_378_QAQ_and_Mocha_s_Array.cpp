@@ -23,7 +23,7 @@
       cout << A[i][j] << " ";           \
     cout << endl;                         \
   }
-#define fast_io                       \
+#define fast_io                     \
   ios_base::sync_with_stdio(false); \
   cin.tie(NULL);                    \
   cout.tie(NULL)
@@ -32,16 +32,26 @@ using namespace std;
 void solve(){
     int N;
     cin >> N;
-    vector<int> A(N - 1);
-    for(auto &a: A){
+    vector<int> A(N);
+    for(auto &a: A)
         cin >> a;
+    sort(all(A));
+
+    vector<int> B;
+    for (int i = 1; i < N; i++){
+      if(A[i] % A[0] != 0)
+          B.push_back(A[i]);
     }
-    int s = 1000;
-    cout << s << " ";
-    for (int i = 0; i < N - 1; i++){
-        cout << A[i] + s << " ";
-        s = A[i] + s;
-    } cout << nl;
+    for (int i = 1; i < B.size(); i++){
+      if(B[i] % B[0] != 0){
+          no;
+          return;
+      }
+    }
+    yes;
+
+    
+
 }
 int main(){
     fast_io;
