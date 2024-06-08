@@ -33,11 +33,9 @@ void solve(){
     int x, y;
     cin >> x >> y;
     int ans = 1;
-    for (int i = 0; i < 31; i++) {
-        if ((x & (1 << i))  == (y & (1 << i)))
-            ans += (1 << i);
-        else
-            break;
+    for (int i = 0; i < 32; i++){
+        if(((x >> i) & 1) == ((y >> i ) & 1))
+            ans ++;
     }
     cout << ans << "\n";
    

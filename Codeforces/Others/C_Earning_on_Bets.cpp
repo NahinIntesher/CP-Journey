@@ -13,51 +13,42 @@
 #define MAX(A) *max_element(A.begin(), A.end());
 #define fast_io ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
 using namespace std;
-using namespace chrono;
-
-template <typename T>
-istream &operator>>(istream &in, vector<T> &a) {
-    for (auto &x : a) in >> x;
-    return in;
-};
-template <typename T>
-ostream &operator<<(ostream &out, vector<T> &a) {
-    for (auto &x : a) out << x << ' ';
-    return out;
-};
-bool find(vector<int> &A, ll k) {
-    ll total = 0;
-    for (auto a: A){
-        total += (k / a + 1);
-    }
-    if (total < k) 
-        return true;
-    return false;
-}
  
 void solve() {
-    int N; 
+    ll N; 
     cin >> N;
-    vector<int> A(N);
-    cin >> A;
-    if (find(A, 1000000000)) {
-        for (int i = 0; i < N; i++) {
-            cout << (1000000000 / A[i]) + 1 << " ";
-        }
-        cout << nl;
-    } else {
-        cout << -1 << nl;
+    vector<ll> A(N);
+    for(auto &a: A)
+        cin >> a;
+
+    ll LCM = A[0];
+    for (int i = 1; i < N; i++){
+        LCM = lcm(LCM, A[i]);
     }
+    
+    vector<ll> ans(N);
+    ll totalSpent = 0;
+    ll minProfit = INT_MAX;
+    for (int i = 0; i < N; i++){
+        ans[i] = LCM / A[i];
+        totalSpent += ans[i];
+        minProfit = min(minProfit, ans[i]*A[i]);
+    } 
+
+    if(totalSpent < minProfit){    
+        for (int i = 0; i < N; i++){
+            cout << ans[i] << " ";
+        } 
+        cout << nl;
+    }
+    else cout << -1 << nl;
+    
 }
 int main(){
-    // auto start1 = high_resolution_clock::now(); 
     fast_io;
     int t = 1;
     cin >> t;
     while(t--){
         solve();
     }
-    // auto stop1 = high_resolution_clock::now(); 
-    // auto duration = duration_cast<microseconds>(stop1 - start1);
-    // cerr << "Run Time : " << ((double)(clock()) / CLOCKS_PER_SEC);
 }
