@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/Visual Studio Code WorkShop/Codeforces",
-      "program": "d:/Visual Studio Code WorkShop/Codeforces/build/Debug/outDebug",
+      "cwd": "d:/Visual Studio Code WorkShop/CP Journey",
+      "program": "d:/Visual Studio Code WorkShop/CP Journey/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
