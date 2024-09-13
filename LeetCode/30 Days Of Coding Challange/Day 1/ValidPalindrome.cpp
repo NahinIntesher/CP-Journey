@@ -1,6 +1,12 @@
+/* 
+Problem Link: 
+https://leetcode.com/problems/valid-palindrome/description/?utm_source=instabyte.io&utm_medium=referral&utm_campaign=interview-master-100
+*/
+
 #include<bits/stdc++.h>
 using namespace std;
-
+class Solution {
+public:
     bool isMyChar(char c) {
         if( (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9')) {
             return true;
@@ -22,11 +28,4 @@ using namespace std;
             return true;
         return false;             
     }
-
-int main(){
-    string s;
-    getline(cin, s);
-
-    if(isPalindrome(s)) cout << 'true';
-    else cout << 'false';
-}
+};
